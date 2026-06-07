@@ -1,8 +1,8 @@
 package com.rngad33.structs.tree;
 
-import com.rngad33.structs.common.Constant;
 import com.rngad33.structs.common.TreeNode;
 import com.rngad33.structs.list.ArrayList;
+import com.rngad33.structs.list.List;
 
 /**
  * 二叉树
@@ -23,10 +23,10 @@ public class BinaryTree<T> {
     /**
      * 初始化（有参）
      *
-     * @param x
+     * @param data
      */
-    public BinaryTree(T x) {
-        this.root = new TreeNode<>(x);
+    public BinaryTree(T data) {
+        this.root = new TreeNode<>(data);
     }
 
     /**
@@ -97,7 +97,7 @@ public class BinaryTree<T> {
     public T[] preOrder(TreeNode<T> node) {
         if (node == null) return null;
 
-        ArrayList<T> list = new ArrayList<>();
+        List<T> list = new ArrayList<>();
         list.insertTail(node.getData());
         preOrder(node.getLChild());
         preOrder(node.getRChild());

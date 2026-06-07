@@ -5,7 +5,7 @@ import com.rngad33.structs.common.Constant;
 /**
  * 顺序栈
  */
-public class ArrayStack<T> {
+public class ArrayStack<T> implements Stack<T> {
 
     private T[] dataList;
 
@@ -26,6 +26,7 @@ public class ArrayStack<T> {
      *
      * @param data
      */
+    @Override
     public void push(T data) {
         if (this.top >= MAX_SIZE) return;
 
@@ -37,6 +38,7 @@ public class ArrayStack<T> {
      *
      * @return
      */
+    @Override
     public T pop() {
         if (this.top < 0) return null;
 
@@ -50,6 +52,7 @@ public class ArrayStack<T> {
      *
      * @return
      */
+    @Override
     public T[] queryAll() {
         return this.dataList;
     }
@@ -57,6 +60,7 @@ public class ArrayStack<T> {
     /**
      * 销毁栈
      */
+    @Override
     public void clear() {
         for (int i = 0; i <= top; i++) {
             this.dataList[i] = null;

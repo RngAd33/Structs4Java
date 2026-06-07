@@ -5,7 +5,7 @@ import com.rngad33.structs.common.Node;
 /**
  * 链式栈
  */
-public class LinkedStack<T> {
+public class LinkedStack<T> implements Stack<T> {
 
     private final Node<T> top;
 
@@ -24,6 +24,7 @@ public class LinkedStack<T> {
      *
      * @param data
      */
+    @Override
     public void push(T data) {
         Node<T> p = top;
         Node<T> q = p.getNext();
@@ -44,6 +45,7 @@ public class LinkedStack<T> {
      *
      * @return
      */
+    @Override
     public T pop() {
         if (top == null || length == 0) return null;
 
@@ -66,6 +68,7 @@ public class LinkedStack<T> {
      *
      * @return
      */
+    @Override
     public T[] queryAll() {
         Node<T> p = top;
         Node<T> q = p.getNext();
@@ -82,6 +85,7 @@ public class LinkedStack<T> {
     /**
      * 销毁栈
      */
+    @Override
     public void clear() {
         Node<T> p = top;
         Node<T> q = p.getNext();
