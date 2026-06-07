@@ -1,6 +1,8 @@
 package com.rngad33.structs.tree;
 
+import com.rngad33.structs.common.Constant;
 import com.rngad33.structs.common.TreeNode;
+import com.rngad33.structs.list.ArrayList;
 
 /**
  * 二叉树
@@ -85,6 +87,22 @@ public class BinaryTree<T> {
         T data = parent.getRChild().getData();
         parent.setRChild(null);
         return data;
+    }
+
+    /**
+     * 先序遍历
+     *
+     * @return
+     */
+    public T[] preOrder(TreeNode<T> node) {
+        if (node == null) return null;
+
+        ArrayList<T> list = new ArrayList<>();
+        list.insertTail(node.getData());
+        preOrder(node.getLChild());
+        preOrder(node.getRChild());
+
+        return list.queryAll();
     }
 
 }

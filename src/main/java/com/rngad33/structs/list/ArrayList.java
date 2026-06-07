@@ -7,7 +7,7 @@ import com.rngad33.structs.common.Constant;
  *
  * @param <T>
  */
-public class ArrayList<T> {
+public class ArrayList<T> implements List<T> {
 
     private T[] dataList;
 
@@ -28,6 +28,7 @@ public class ArrayList<T> {
      *
      * @param data
      */
+    @Override
     public void insertHead(T data) {
         // 向后移动所有前驱元素
         for (int i = length-1; i > 0; i--) {
@@ -43,6 +44,7 @@ public class ArrayList<T> {
      * @param data
      * @return
      */
+    @Override
     public void insertTail(T data) {
         if (this.length >= MAX_SIZE) return;
 
@@ -53,11 +55,12 @@ public class ArrayList<T> {
     /**
      * 插入元素（指定位置插入）
      *
-     * @param index
      * @param data
+     * @param index
      * @return
      */
-    public boolean insert(int index, T data) {
+    @Override
+    public boolean insert(T data, int index) {
         if (this.length >= MAX_SIZE) {
             return false;
         }
@@ -77,6 +80,7 @@ public class ArrayList<T> {
      *
      * @return
      */
+    @Override
     public T[] queryAll() {
         T[] dataList = (T[]) new Object[length];
         for (int i = 0; i < length; i++) {
@@ -91,6 +95,7 @@ public class ArrayList<T> {
      * @param index
      * @return
      */
+    @Override
     public T query(int index) {
         if (!this.checkIndex(index)) return null;
         return this.dataList[index];
@@ -102,7 +107,8 @@ public class ArrayList<T> {
      * @param index
      * @return
      */
-    public T delete(int index) {
+    @Override
+    public T remove(int index) {
         if (!this.checkIndex(index)) return null;
 
         int target = index-1;
@@ -122,9 +128,18 @@ public class ArrayList<T> {
      * @param index
      * @param data
      */
-    public void update(int index, T data) {
+    @Override
+    public void update(T data, int index) {
         if (!this.checkIndex(index)) return;
         this.dataList[index] = data;
+    }
+
+    /**
+     * 销毁
+     */
+    @Override
+    public void clear() {
+
     }
 
     /**

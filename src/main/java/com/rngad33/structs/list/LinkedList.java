@@ -7,7 +7,7 @@ import com.rngad33.structs.common.Node;
  *
  * @param <T>
  */
-public class LinkedList<T> {
+public class LinkedList<T> implements List<T> {
 
     private final Node<T> head;
 
@@ -26,6 +26,7 @@ public class LinkedList<T> {
      *
      * @param data
      */
+    @Override
     public void insertHead(T data) {
         Node<T> p = head;
         Node<T> q = p.getNext();
@@ -41,6 +42,7 @@ public class LinkedList<T> {
      *
      * @param data
      */
+    @Override
     public void insertTail(T data) {
         Node<T> p = head;
         Node<T> q = p.getNext();
@@ -62,6 +64,7 @@ public class LinkedList<T> {
      * @param data
      * @param index
      */
+    @Override
     public boolean insert(T data, int index) {
         if (!this.checkIndex(index)) return false;
 
@@ -87,6 +90,7 @@ public class LinkedList<T> {
      *
      * @return
      */
+    @Override
     public T[] queryAll() {
         Node<T> p = head;
         Node<T> q = p.getNext();
@@ -106,6 +110,7 @@ public class LinkedList<T> {
      * @param index
      * @return
      */
+    @Override
     public T query(int index) {
         Node<T> q = this.getTargetNode(index);
         if (q == null) return null;
@@ -119,6 +124,7 @@ public class LinkedList<T> {
      * @param index
      * @return
      */
+    @Override
     public T remove(int index) {
         if (!this.checkIndex(index)) return null;
 
@@ -144,12 +150,22 @@ public class LinkedList<T> {
      * @param index
      * @param data
      */
-    public boolean update(int index, T data) {
+    @Override
+    public void update(T data, int index) {
         Node<T> q = this.getTargetNode(index);
-        if (q == null) return false;
+        if (q == null) return;
 
         q.setData(data);
-        return true;
+    }
+
+    /**
+     * 销毁
+     */
+    @Override
+    public void clear() {
+        for (int i = 0; i <= length; i++) {
+
+        }
     }
 
     /**
