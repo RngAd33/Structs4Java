@@ -27,4 +27,64 @@ public class BinaryTree<T> {
         this.root = new TreeNode<>(x);
     }
 
+    /**
+     * 插入左子树
+     *
+     * @param data
+     * @param parent
+     */
+    public void insertLeft(T data, TreeNode<T> parent) {
+        if (parent == null) return;
+
+        TreeNode<T> p = new TreeNode<>(data);
+        if (parent.getLChild() != null) {
+            p.setLChild(parent.getLChild());
+        }
+        parent.setLChild(p);
+    }
+
+    /**
+     * 插入右子树
+     *
+     * @param data
+     * @param parent
+     */
+    public void insertRight(T data, TreeNode<T> parent) {
+        if (parent == null) return;
+
+        TreeNode<T> p = new TreeNode<>(data);
+        if (parent.getRChild() != null) {
+            p.setRChild(parent.getRChild());
+        }
+        parent.setRChild(p);
+    }
+
+    /**
+     * 删除左子树
+     *
+     * @param parent
+     * @return
+     */
+    public T removeLeft(TreeNode<T> parent) {
+        if (parent == null) return null;
+
+        T data = parent.getLChild().getData();
+        parent.setLChild(null);
+        return data;
+    }
+
+    /**
+     * 删除右子树
+     *
+     * @param parent
+     * @return
+     */
+    public T removeRight(TreeNode<T> parent) {
+        if (parent == null) return null;
+
+        T data = parent.getRChild().getData();
+        parent.setRChild(null);
+        return data;
+    }
+
 }

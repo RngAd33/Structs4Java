@@ -1,20 +1,23 @@
 package com.rngad33.structs.common;
 
+import lombok.Data;
+
 /**
  * 二叉树结点
  *
  * @param <T>
  */
+@Data
 public class TreeNode<T> {
 
     // 左孩子
-    private Node<T> lChild;
+    private TreeNode<T> lChild;
 
     // 数据域
     private T data;
 
     // 右孩子
-    private Node<T> rChild;
+    private TreeNode<T> rChild;
 
     /**
      * 无参构造
