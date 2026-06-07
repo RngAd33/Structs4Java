@@ -73,6 +73,19 @@ public class ArrayList<T> {
     }
 
     /**
+     * 查询所有元素
+     *
+     * @return
+     */
+    public T[] queryAll() {
+        T[] dataList = (T[]) new Object[length];
+        for (int i = 0; i < length; i++) {
+            dataList[i] = this.dataList[i];
+        }
+        return dataList;
+    }
+
+    /**
      * 查询指定位置元素
      *
      * @param index
