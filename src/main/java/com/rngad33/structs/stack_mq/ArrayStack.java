@@ -1,5 +1,7 @@
 package com.rngad33.structs.stack_mq;
 
+import com.rngad33.structs.common.Constant;
+
 /**
  * 顺序栈
  */
@@ -9,7 +11,7 @@ public class ArrayStack<T> {
 
     private int top;
 
-    private static final int MAX_SIZE = 100;
+    private static final int MAX_SIZE = Constant.MAX_SIZE;
 
     /**
      * 初始化顺序栈
