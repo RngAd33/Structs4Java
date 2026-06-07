@@ -9,10 +9,14 @@ import com.rngad33.structs.common.TreeNode;
  */
 public class BinaryTree<T> {
 
+    private final TreeNode<T> root;
 
+    public BinaryTree() {
+        this.root = new TreeNode<>();
+    }
 
-    public BinaryTree() {}
-
-    public BinaryTree(T x) {}
+    public BinaryTree(T x) {
+        this.root = new TreeNode<>(x);
+    }
 
 }
