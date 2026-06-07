@@ -94,15 +94,47 @@ public class BinaryTree<T> {
      *
      * @return
      */
-    public T[] preOrder(TreeNode<T> node) {
-        if (node == null) return null;
+    public void preOrder(TreeNode<T> node) {
+        if (node == null) return;
 
-        List<T> list = new ArrayList<>();
-        list.insertTail(node.getData());
+        visit(node.getData());
         preOrder(node.getLChild());
         preOrder(node.getRChild());
+    }
 
-        return list.queryAll();
+    /**
+     * 中序遍历
+     *
+     * @return
+     */
+    public void inOrder(TreeNode<T> node) {
+        if (node == null) return;
+
+        preOrder(node.getLChild());
+        visit(node.getData());
+        preOrder(node.getRChild());
+    }
+
+    /**
+     * 后序遍历
+     *
+     * @param node
+     */
+    public void postOrder(TreeNode<T> node) {
+        if (node == null) return;
+
+        preOrder(node.getLChild());
+        preOrder(node.getRChild());
+        visit(node.getData());
+    }
+
+    /**
+     * 访问结点数据
+     *
+     * @param data
+     */
+    private void visit(T data) {
+        System.out.println(data);
     }
 
 }

@@ -1,10 +1,13 @@
 package com.rngad33.structs.common;
 
+import lombok.Data;
+
 /**
  * 红黑树结点
  *
  * @param <T>
  */
+@Data
 public class RBTreeNode<T> {
 
     // 左孩子

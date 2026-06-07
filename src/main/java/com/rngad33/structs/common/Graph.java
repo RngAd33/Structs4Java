@@ -1,10 +1,13 @@
 package com.rngad33.structs.common;
 
+import lombok.Data;
+
 /**
  * 图
  *
  * @param <T>
  */
+@Data
 public class Graph<T> {
 
     private final int MAX_SIZE = Constant.MAX_SIZE;
