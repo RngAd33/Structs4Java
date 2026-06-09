@@ -13,6 +13,8 @@ public class BinaryTree<T> {
 
     private final TreeNode<T> root;
 
+    private ArrayList<T> tempList;
+
     /**
      * 初始化（无参）
      */
@@ -100,6 +102,8 @@ public class BinaryTree<T> {
         visit(node.getData());
         preOrder(node.getLChild());
         preOrder(node.getRChild());
+
+        this.listAll(tempList);
     }
 
     /**
@@ -113,6 +117,8 @@ public class BinaryTree<T> {
         preOrder(node.getLChild());
         visit(node.getData());
         preOrder(node.getRChild());
+
+        this.listAll(tempList);
     }
 
     /**
@@ -126,6 +132,8 @@ public class BinaryTree<T> {
         preOrder(node.getLChild());
         preOrder(node.getRChild());
         visit(node.getData());
+
+        this.listAll(tempList);
     }
 
     /**
@@ -134,7 +142,19 @@ public class BinaryTree<T> {
      * @param data
      */
     private void visit(T data) {
-        System.out.println(data);
+        tempList.insertTail(data);
+    }
+
+    /**
+     * 获取所有结点数据
+     *
+     * @param list
+     * @return
+     */
+    private T[] listAll(ArrayList<T> list) {
+        T[] dataList = list.queryAll();
+        list.clear();
+        return dataList;
     }
 
 }
