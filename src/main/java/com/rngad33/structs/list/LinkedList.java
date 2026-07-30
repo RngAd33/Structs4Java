@@ -163,9 +163,14 @@ public class LinkedList<T> implements List<T> {
      */
     @Override
     public void clear() {
+        Node<T> p = head;
+        Node<T> q = p.getNext();
         for (int i = 0; i <= length; i++) {
-
+            p = q;
+            p.setData(null);
+            p.setNext(null);
         }
+        length = 0;
     }
 
     /**
@@ -179,13 +184,13 @@ public class LinkedList<T> implements List<T> {
     }
 
     /**
-     * 检查位置是否合法
+     * 获取目标结点
      *
      * @param index
      * @return
      */
     private Node<T> getTargetNode(int index) {
-        if (this.checkIndex(index)) return null;
+        if (!this.checkIndex(index)) return null;
 
         Node<T> p = head;
         Node<T> q = p.getNext();

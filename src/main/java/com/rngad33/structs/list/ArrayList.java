@@ -149,7 +149,7 @@ public class ArrayList<T> implements List<T> {
      * @return
      */
     private boolean checkIndex(int index) {
-        return index > 0 || index <= length;
+        return index > 0 && index <= length;
     }
 
 }
