@@ -1,4 +1,4 @@
-package com.rngad33.structs.tree;
+package com.rngad33.structs.search;
 
 /**
  * 红黑树

@@ -1,6 +1,6 @@
 package com.rngad33.structs.list;
 
-import com.rngad33.structs.common.Node;
+import com.rngad33.structs.model.list_stack_mq.Node;
 
 /**
  * 单链表

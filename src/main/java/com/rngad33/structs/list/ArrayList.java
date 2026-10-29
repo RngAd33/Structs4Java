@@ -1,6 +1,6 @@
 package com.rngad33.structs.list;
 
-import com.rngad33.structs.common.Constant;
+import static com.rngad33.structs.constant.StructConstant.*;
 
 /**
  * 顺序表
@@ -9,11 +9,9 @@ import com.rngad33.structs.common.Constant;
  */
 public class ArrayList<T> implements List<T> {
 
-    private T[] dataList;
+    private final T[] dataList;
 
     private int length;
-
-    private static final int MAX_SIZE = Constant.MAX_SIZE;
 
     /**
      * 初始化顺序表

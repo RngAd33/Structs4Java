@@ -7,5 +7,12 @@ package com.rngad33.structs.stack_mq;
  */
 public interface Mq<T> {
 
+    void push(T data);
+
+    T pop();
+
+    T[] queryAll();
+
+    void clear();
 
 }

@@ -1,25 +1,22 @@
 package com.rngad33.structs.tree;
 
-import com.rngad33.structs.common.TreeNode;
-import com.rngad33.structs.list.ArrayList;
-import com.rngad33.structs.list.List;
+import com.rngad33.structs.model.tree.BinaryTreeNode;
 
 /**
- * 二叉树
+ * 二叉树（链式存储）
  *
  * @param <T>
  */
-public class BinaryTree<T> {
+public class LinkedBinaryTree<T> implements Tree<T> {
 
-    private final TreeNode<T> root;
-
-    private ArrayList<T> tempList;
+    // 树根
+    private final BinaryTreeNode<T> root;
 
     /**
      * 初始化（无参）
      */
-    public BinaryTree() {
-        this.root = new TreeNode<>();
+    public LinkedBinaryTree() {
+        this.root = new BinaryTreeNode<>();
     }
 
     /**
@@ -27,8 +24,8 @@ public class BinaryTree<T> {
      *
      * @param data
      */
-    public BinaryTree(T data) {
-        this.root = new TreeNode<>(data);
+    public LinkedBinaryTree(T data) {
+        this.root = new BinaryTreeNode<>(data);
     }
 
     /**
@@ -37,14 +34,16 @@ public class BinaryTree<T> {
      * @param data
      * @param parent
      */
-    public void insertLeft(T data, TreeNode<T> parent) {
+    @Override
+    public void insertLeft(T data, BinaryTreeNode<T> parent) {
         if (parent == null) return;
 
-        TreeNode<T> p = new TreeNode<>(data);
+        BinaryTreeNode<T> p = new BinaryTreeNode<>(data);
         if (parent.getLChild() != null) {
             p.setLChild(parent.getLChild());
+        } else {
+            parent.setLChild(p);
         }
-        parent.setLChild(p);
     }
 
     /**
@@ -53,14 +52,16 @@ public class BinaryTree<T> {
      * @param data
      * @param parent
      */
-    public void insertRight(T data, TreeNode<T> parent) {
+    @Override
+    public void insertRight(T data, BinaryTreeNode<T> parent) {
         if (parent == null) return;
 
-        TreeNode<T> p = new TreeNode<>(data);
+        BinaryTreeNode<T> p = new BinaryTreeNode<>(data);
         if (parent.getRChild() != null) {
             p.setRChild(parent.getRChild());
+        } else {
+            parent.setRChild(p);
         }
-        parent.setRChild(p);
     }
 
     /**
@@ -69,7 +70,8 @@ public class BinaryTree<T> {
      * @param parent
      * @return
      */
-    public T removeLeft(TreeNode<T> parent) {
+    @Override
+    public T removeLeft(BinaryTreeNode<T> parent) {
         if (parent == null) return null;
 
         T data = parent.getLChild().getData();
@@ -83,7 +85,8 @@ public class BinaryTree<T> {
      * @param parent
      * @return
      */
-    public T removeRight(TreeNode<T> parent) {
+    @Override
+    public T removeRight(BinaryTreeNode<T> parent) {
         if (parent == null) return null;
 
         T data = parent.getRChild().getData();
@@ -96,14 +99,13 @@ public class BinaryTree<T> {
      *
      * @return
      */
-    public void preOrder(TreeNode<T> node) {
+    @Override
+    public void preOrder(BinaryTreeNode<T> node) {
         if (node == null) return;
 
         visit(node.getData());
         preOrder(node.getLChild());
         preOrder(node.getRChild());
-
-        this.listAll(tempList);
     }
 
     /**
@@ -111,14 +113,13 @@ public class BinaryTree<T> {
      *
      * @return
      */
-    public void inOrder(TreeNode<T> node) {
+    @Override
+    public void inOrder(BinaryTreeNode<T> node) {
         if (node == null) return;
 
         preOrder(node.getLChild());
         visit(node.getData());
         preOrder(node.getRChild());
-
-        this.listAll(tempList);
     }
 
     /**
@@ -126,35 +127,33 @@ public class BinaryTree<T> {
      *
      * @param node
      */
-    public void postOrder(TreeNode<T> node) {
+    @Override
+    public void postOrder(BinaryTreeNode<T> node) {
         if (node == null) return;
 
         preOrder(node.getLChild());
         preOrder(node.getRChild());
         visit(node.getData());
-
-        this.listAll(tempList);
     }
 
     /**
-     * 访问结点数据
+     * 获取树高
+     *
+     * @param parent
+     * @return
+     */
+    @Override
+    public int getHeight(BinaryTreeNode<T> parent) {
+        return 1;
+    }
+
+    /**
+     * 访问根结点
      *
      * @param data
      */
     private void visit(T data) {
-        tempList.insertTail(data);
-    }
-
-    /**
-     * 获取所有结点数据
-     *
-     * @param list
-     * @return
-     */
-    private T[] listAll(ArrayList<T> list) {
-        T[] dataList = list.queryAll();
-        list.clear();
-        return dataList;
+        System.out.print(data + " ");
     }
 
 }

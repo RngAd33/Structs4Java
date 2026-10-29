@@ -11,7 +11,7 @@ import com.rngad33.structs.list.List;
  */
 public class ListTest {
 
-    /** 测试数据规模（需小于 Constant.MAX_SIZE=100，预留写操作空间） */
+    /** 测试数据规模（需小于 StructConstant.MAX_SIZE=100，预留写操作空间） */
     private static final int DATA_SIZE = 80;
     /** 读操作次数 */
     private static final int READ_OPS = 100000;
@@ -205,10 +205,10 @@ public class ListTest {
         // 顺序表遍历
         long start = System.nanoTime();
         for (int r = 0; r < rounds; r++) {
-            Integer[] arr = arrayList.queryAll();
+            Object[] arr = arrayList.queryAll();
             long sum = 0;
-            for (Integer val : arr) {
-                sum += val;
+            for (Object val : arr) {
+                sum += (Integer) val;
             }
         }
         long arrayTime = System.nanoTime() - start;
@@ -216,10 +216,10 @@ public class ListTest {
         // 链表遍历
         start = System.nanoTime();
         for (int r = 0; r < rounds; r++) {
-            Integer[] arr = linkedList.queryAll();
+            Object[] arr = linkedList.queryAll();
             long sum = 0;
-            for (Integer val : arr) {
-                sum += val;
+            for (Object val : arr) {
+                sum += (Integer) val;
             }
         }
         long linkedTime = System.nanoTime() - start;

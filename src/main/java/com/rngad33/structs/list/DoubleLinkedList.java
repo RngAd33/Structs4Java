@@ -1,6 +1,6 @@
 package com.rngad33.structs.list;
 
-import com.rngad33.structs.common.DuNode;
+import com.rngad33.structs.model.list_stack_mq.DuNode;
 
 /**
  * 双向链表

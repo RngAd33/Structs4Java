@@ -1,5 +1,6 @@
-package com.rngad33.structs.common;
+package com.rngad33.structs.model;
 
+import com.rngad33.structs.constant.StructConstant;
 import lombok.Data;
 
 /**
@@ -10,7 +11,7 @@ import lombok.Data;
 @Data
 public class Graph<T> {
 
-    private final int MAX_SIZE = Constant.MAX_SIZE;
+    private final int MAX_SIZE = StructConstant.MAX_SIZE;
 
     // 权值
     private final int MAX;
@@ -28,7 +29,7 @@ public class Graph<T> {
     private int n;
 
     public Graph() {
-        this.MAX = Constant.MAX;
+        this.MAX = StructConstant.MAX;
     }
 
     /**

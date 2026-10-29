@@ -1,31 +1,36 @@
-package com.rngad33.structs.common;
+package com.rngad33.structs.model.tree;
 
+import com.rngad33.structs.constant.StructConstant;
 import lombok.Data;
 
 /**
- * 二叉树结点
+ * 红黑树结点
  *
  * @param <T>
  */
 @Data
-public class TreeNode<T> {
+public class RBTreeNode<T> {
 
     // 左孩子
-    private TreeNode<T> lChild;
+    private RBTreeNode<T> lChild;
 
     // 数据域
     private T data;
 
     // 右孩子
-    private TreeNode<T> rChild;
+    private RBTreeNode<T> rChild;
+
+    // 颜色
+    private int color;
 
     /**
      * 无参构造
      */
-    public TreeNode() {
+    public RBTreeNode() {
         this.lChild = null;
         this.data = null;
         this.rChild = null;
+        this.color = StructConstant.RED;
     }
 
     /**
@@ -33,10 +38,11 @@ public class TreeNode<T> {
      *
      * @param data
      */
-    public TreeNode(T data) {
+    public RBTreeNode(T data) {
         this.lChild = null;
         this.data = data;
         this.rChild = null;
+        this.color = StructConstant.RED;
     }
 
 }

@@ -1,4 +1,4 @@
-package com.rngad33.structs.common;
+package com.rngad33.structs.model.list_stack_mq;
 
 import lombok.Data;
 
